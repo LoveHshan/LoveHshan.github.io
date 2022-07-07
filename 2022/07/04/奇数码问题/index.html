@@ -1,0 +1,557 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://e.im5i.com/2021/10/21/UUsKQ7.png">
+  <link rel="icon" href="https://e.im5i.com/2021/10/21/UUsKQ7.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="Nicoppa">
+  <meta name="keywords" content="">
+  <meta name="description" content="奇数码问题你一定玩过八数码游戏，它实际上是在一个 $3×3$ 的网格中进行的，$1$ 个空格和 $1∼8$ 这 $8$ 个数字恰好不重不漏地分布在这 $3×3$ 的网格中。 例如： 1235 2 81 3 _4 6 7  在游戏过程中，可以把空格与其上、下、左、右四个方向之一的数字交换（如果存在）。 例如在上例中，空格可与左、上、下面的数字交换，分别变成： 1235 2 8       5 2 _">
+<meta property="og:type" content="article">
+<meta property="og:title" content="奇数码问题">
+<meta property="og:url" content="https://lovehshan.top/2022/07/04/%E5%A5%87%E6%95%B0%E7%A0%81%E9%97%AE%E9%A2%98/index.html">
+<meta property="og:site_name" content="Nicoppa_Blog">
+<meta property="og:description" content="奇数码问题你一定玩过八数码游戏，它实际上是在一个 $3×3$ 的网格中进行的，$1$ 个空格和 $1∼8$ 这 $8$ 个数字恰好不重不漏地分布在这 $3×3$ 的网格中。 例如： 1235 2 81 3 _4 6 7  在游戏过程中，可以把空格与其上、下、左、右四个方向之一的数字交换（如果存在）。 例如在上例中，空格可与左、上、下面的数字交换，分别变成： 1235 2 8       5 2 _">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-07-04T10:06:41.000Z">
+<meta property="article:modified_time" content="2022-07-04T13:40:53.701Z">
+<meta property="article:author" content="Nicoppa">
+<meta property="article:tag" content="算法">
+<meta property="article:tag" content="逆序对">
+<meta property="article:tag" content="归并排序">
+<meta property="article:tag" content="有解性判定">
+<meta name="twitter:card" content="summary_large_image">
+  
+  <title>奇数码问题 - Nicoppa_Blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"lovehshan.top","root":"/","version":"1.8.12","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Nicoppaの个人博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://www.giaott.com/images/2022/07/06/2ULTG.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="奇数码问题">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-07-04 18:06" pubdate>
+        2022年7月4日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      4.2k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      13 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">奇数码问题</h1>
+            
+            <div class="markdown-body">
+              <h1 id="奇数码问题"><a href="#奇数码问题" class="headerlink" title="奇数码问题"></a>奇数码问题</h1><p>你一定玩过八数码游戏，它实际上是在一个 $3×3$ 的网格中进行的，$1$ 个空格和 $1∼8$ 这 $8$ 个数字恰好不重不漏地分布在这 $3×3$ 的网格中。</p>
+<p>例如：</p>
+<figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs basic"><span class="hljs-symbol">5 </span><span class="hljs-number">2</span> <span class="hljs-number">8</span><br><span class="hljs-symbol">1 </span><span class="hljs-number">3</span> _<br><span class="hljs-symbol">4 </span><span class="hljs-number">6</span> <span class="hljs-number">7</span><br></code></pre></td></tr></table></figure>
+
+<p>在游戏过程中，可以把空格与其上、下、左、右四个方向之一的数字交换（如果存在）。</p>
+<p>例如在上例中，空格可与左、上、下面的数字交换，分别变成：</p>
+<figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs basic"><span class="hljs-symbol">5 </span><span class="hljs-number">2</span> <span class="hljs-number">8</span>       <span class="hljs-number">5</span> <span class="hljs-number">2</span> _      <span class="hljs-number">5</span> <span class="hljs-number">2</span> <span class="hljs-number">8</span><br><span class="hljs-symbol">1 </span>_ <span class="hljs-number">3</span>       <span class="hljs-number">1</span> <span class="hljs-number">3</span> <span class="hljs-number">8</span>      <span class="hljs-number">1</span> <span class="hljs-number">3</span> <span class="hljs-number">7</span><br><span class="hljs-symbol">4 </span><span class="hljs-number">6</span> <span class="hljs-number">7</span>       <span class="hljs-number">4</span> <span class="hljs-number">6</span> <span class="hljs-number">7</span>      <span class="hljs-number">4</span> <span class="hljs-number">6</span> _<br></code></pre></td></tr></table></figure>
+
+<p>奇数码游戏是它的一个扩展，在一个 $n×n$ 的网格中进行，其中 $n$ 为奇数，$1$ 个空格和 $1∼n^2−1$ 这 $n^2−1$ 个数恰好不重不漏地分布在 $n×n$ 的网格中。</p>
+<p>空格移动的规则与八数码游戏相同，实际上，八数码就是一个 $n=3$ 的奇数码游戏。</p>
+<p>现在给定两个奇数码游戏的局面，请判断是否存在一种移动空格的方式，使得其中一个局面可以变化到另一个局面。</p>
+<h4 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h4><p>多组数据，对于每组数据：</p>
+<p>第 $1$ 行输入一个整数 $n$，$n$ 为奇数。</p>
+<p>接下来 $n$ 行每行 $n$ 个整数，表示第一个局面。</p>
+<p>再接下来 $n$ 行每行 $n$ 个整数，表示第二个局面。</p>
+<p>局面中每个整数都是 $0∼n^2−1$ 之一，其中用 $0$ 代表空格，其余数值与奇数码游戏中的意义相同，保证这些整数的分布不重不漏。</p>
+<h4 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h4><p>对于每组数据，若两个局面可达，输出 <code>TAK</code>，否则输出 <code>NIE</code>。</p>
+<h4 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h4><p>$1≤n&lt;500$</p>
+<h4 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h4><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs basic"><span class="hljs-number">3</span><br><span class="hljs-symbol">1 </span><span class="hljs-number">2</span> <span class="hljs-number">3</span><br><span class="hljs-symbol">0 </span><span class="hljs-number">4</span> <span class="hljs-number">6</span><br><span class="hljs-symbol">7 </span><span class="hljs-number">5</span> <span class="hljs-number">8</span><br><span class="hljs-symbol">1 </span><span class="hljs-number">2</span> <span class="hljs-number">3</span><br><span class="hljs-symbol">4 </span><span class="hljs-number">5</span> <span class="hljs-number">6</span><br><span class="hljs-symbol">7 </span><span class="hljs-number">8</span> <span class="hljs-number">0</span><br><span class="hljs-number">1</span><br><span class="hljs-number">0</span><br><span class="hljs-number">0</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h4><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">TAK</span><br><span class="hljs-attribute">TAK</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>解析</strong></p>
+<p>首先一眼题，很简单的办法便是爆搜，终止条件我们只需要看空格位置是否重合，如果重合我们便与答案局面对照，如果相同则可以到达，不同则继续搜索，最后如果没有符合条件的答案便表示不能到达。</p>
+<p>部分代码如下</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">if</span>(x + <span class="hljs-number">1</span> &lt;= n * n &amp;&amp; flag != <span class="hljs-number">1</span>) &#123;<br>	std::<span class="hljs-built_in">swap</span>(a[x], a[x + <span class="hljs-number">1</span>]);<br>	<span class="hljs-built_in">dfs</span>(a, x + <span class="hljs-number">1</span>);<br>	std::<span class="hljs-built_in">swap</span>(a[x], a[x - <span class="hljs-number">1</span>]);<br>&#125; <span class="hljs-keyword">if</span>(x - <span class="hljs-number">1</span> &gt;= <span class="hljs-number">1</span> &amp;&amp; flag != <span class="hljs-number">1</span>) &#123;<br>	std::<span class="hljs-built_in">swap</span>(a[x], a[x - <span class="hljs-number">1</span>]);<br>	<span class="hljs-built_in">dfs</span>(a, x - <span class="hljs-number">1</span>);	<br>	std::<span class="hljs-built_in">swap</span>(a[x], a[x + <span class="hljs-number">1</span>]);<br>&#125; <span class="hljs-keyword">if</span>(x + (n - <span class="hljs-number">1</span>) &lt;= n * n &amp;&amp; flag != <span class="hljs-number">1</span>) &#123;<br>	std::<span class="hljs-built_in">swap</span>(a[x], a[x + (n - <span class="hljs-number">1</span>)]);<br>	<span class="hljs-built_in">dfs</span>(a, x + (n - <span class="hljs-number">1</span>));	<br>	std::<span class="hljs-built_in">swap</span>(a[x], a[x - (n - <span class="hljs-number">1</span>)]);<br>&#125; <span class="hljs-keyword">if</span>(x - (n - <span class="hljs-number">1</span>) &gt;= <span class="hljs-number">1</span> &amp;&amp; flag != <span class="hljs-number">1</span>) &#123;<br>	std::<span class="hljs-built_in">swap</span>(a[x], a[x - (n - <span class="hljs-number">1</span>)]);<br>	<span class="hljs-built_in">dfs</span>(a, x - (n - <span class="hljs-number">1</span>));<br>	std::<span class="hljs-built_in">swap</span>(a[x], a[x + (n - <span class="hljs-number">1</span>)]);<br>&#125; <br></code></pre></td></tr></table></figure>
+
+<p>很明显这道题并不能用这个，我的爆搜时间复杂度为 $O(n^3)$ ，且这道题还是多道数据</p>
+<p>在二维上解决不了，考虑将二维转一维，由题中样例可得转化后的一维图为</p>
+<figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs basic"><span class="hljs-symbol">5 </span><span class="hljs-number">2</span> <span class="hljs-number">8</span><br><span class="hljs-symbol">1 </span><span class="hljs-number">3</span> _<br><span class="hljs-symbol">4 </span><span class="hljs-number">6</span> <span class="hljs-number">7</span><br><br><span class="hljs-symbol">5 </span><span class="hljs-number">2</span> <span class="hljs-number">8</span> <span class="hljs-number">1</span> <span class="hljs-number">3</span> _ <span class="hljs-number">4</span> <span class="hljs-number">6</span> <span class="hljs-number">7</span><br></code></pre></td></tr></table></figure>
+
+<p>此样例无法向右交换，但我们可以得到它的其他三种交换后状态 分别为</p>
+<figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs tap">原<span class="hljs-number"> 5 </span>2<span class="hljs-number"> 8 </span>1<span class="hljs-number"> 3 </span>_<span class="hljs-number"> 4 </span>6 7<br>左<span class="hljs-number"> 5 </span>2<span class="hljs-number"> 8 </span>1 _<span class="hljs-number"> 3 </span>4<span class="hljs-number"> 6 </span>7<br>上<span class="hljs-number"> 5 </span>2 _<span class="hljs-number"> 1 </span>3<span class="hljs-number"> 8 </span>4<span class="hljs-number"> 6 </span>7<br>下<span class="hljs-number"> 5 </span>2<span class="hljs-number"> 8 </span>1<span class="hljs-number"> 3 </span>7<span class="hljs-number"> 4 </span>6 _<br></code></pre></td></tr></table></figure>
+
+<p>根据向 左 的移动状态可以知道，在空格移动后原数据的相对位置不变，同理 向右也如此。</p>
+<p>根据向 上下 的移动状态可以知道，在空格移动后部分原数据的相对位置发生改变，改变的数量为 $n$ 个</p>
+<p>从目前是看不出任何东西的，继续思考。此问题为一种 <strong>有解性判定</strong> 若只考虑输入数列而不考虑结果数列可能并不能得到答案</p>
+<p>于是考虑样例</p>
+<p>输入局面</p>
+<figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs basic"><span class="hljs-symbol">1 </span><span class="hljs-number">2</span> <span class="hljs-number">3</span> _ <span class="hljs-number">4</span> <span class="hljs-number">6</span> <span class="hljs-number">7</span> <span class="hljs-number">5</span> <span class="hljs-number">8</span><br></code></pre></td></tr></table></figure>
+
+<p>结果局面</p>
+<figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs basic"><span class="hljs-symbol">1 </span><span class="hljs-number">2</span> <span class="hljs-number">3</span> <span class="hljs-number">4</span> <span class="hljs-number">5</span> <span class="hljs-number">6</span> <span class="hljs-number">7</span> <span class="hljs-number">8</span> _<br></code></pre></td></tr></table></figure>
+
+<p>易得，想要从输入局面到结果局面 将空格先向右交换然后向下交换，最后再向右交换</p>
+<p>分别为</p>
+<figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs basic"><span class="hljs-symbol">1 </span><span class="hljs-number">2</span> <span class="hljs-number">3</span> <span class="hljs-number">4</span> _ <span class="hljs-number">6</span> <span class="hljs-number">7</span> <span class="hljs-number">5</span> <span class="hljs-number">8</span><br><span class="hljs-symbol">1 </span><span class="hljs-number">2</span> <span class="hljs-number">3</span> <span class="hljs-number">4</span> <span class="hljs-number">5</span> <span class="hljs-number">6</span> <span class="hljs-number">7</span> _ <span class="hljs-number">8</span><br><span class="hljs-symbol">1 </span><span class="hljs-number">2</span> <span class="hljs-number">3</span> <span class="hljs-number">4</span> <span class="hljs-number">5</span> <span class="hljs-number">6</span> <span class="hljs-number">7</span> <span class="hljs-number">8</span> _<br></code></pre></td></tr></table></figure>
+
+<p>空格对数的交换对数列造成了哪些影响？左右交换是改变了一个数的位置，但对一整段数列而言这一个数的相对位置并没有改变，而上下交换却影响的 $n$ 个数的相对位置，有什么办法能快速记录这 $n$ 个数的影响吗？我们发现，根据题意整段数列不存在相同的数，于是我们可以通过记录 <strong>逆序对</strong> 的方法，来记录这 $n$ 个数的影响。</p>
+<p>比如</p>
+<figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs basic"><span class="hljs-symbol">1 </span><span class="hljs-number">2</span> <span class="hljs-number">3</span> <span class="hljs-number">4</span> _ <span class="hljs-number">6</span> <span class="hljs-number">7</span> <span class="hljs-number">5</span> <span class="hljs-number">8</span> 改变的逆序对个数为 <span class="hljs-number">0</span><br><span class="hljs-symbol">1 </span><span class="hljs-number">2</span> <span class="hljs-number">3</span> <span class="hljs-number">4</span> <span class="hljs-number">5</span> <span class="hljs-number">6</span> <span class="hljs-number">7</span> _ <span class="hljs-number">8</span> 改变的逆序对个数为 -<span class="hljs-number">2</span><br><span class="hljs-symbol">1 </span><span class="hljs-number">2</span> <span class="hljs-number">3</span> <span class="hljs-number">4</span> <span class="hljs-number">5</span> <span class="hljs-number">6</span> <span class="hljs-number">7</span> <span class="hljs-number">8</span> _ 改变的逆序对个数为 <span class="hljs-number">0</span><br></code></pre></td></tr></table></figure>
+
+<p>可以发现，左右移动不会使逆序对的个数改变，而上下移动会对逆序对的个数改变，因为数列的长度始终为奇数，<strong>所以空格每次交换，在数列上的表现一定是移动奇数个单位</strong>，从而使 $n - 1$ 个数与空格交换的数的相对位置发生改变。</p>
+<p>因此，我们就可以将这 $n$ 个数的各种情况举例出来，看是否存在某种规律。跟上面同理，我们将一段 $n = 3$ 的数列的空格向上移动，就有</p>
+<figure class="highlight llvm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs llvm">a b <span class="hljs-keyword">c</span> d e _ g h i<br><span class="hljs-keyword">c</span> d e _<br>_ d e <span class="hljs-keyword">c</span><br><br>前面是数列各数的关系，后面是逆序对改变前和改变后的数量<br><span class="hljs-keyword">c</span> &gt; d &gt; e <span class="hljs-number">0</span> <span class="hljs-number">2</span><br><span class="hljs-keyword">c</span> &gt; e &gt; d <span class="hljs-number">2</span> <span class="hljs-number">0</span><br>d &gt; <span class="hljs-keyword">c</span> &gt; e <span class="hljs-number">2</span> <span class="hljs-number">2</span><br>d &gt; e &gt; <span class="hljs-keyword">c</span> <span class="hljs-number">1</span> <span class="hljs-number">3</span><br>e &gt; d &gt; <span class="hljs-keyword">c</span> <span class="hljs-number">0</span> <span class="hljs-number">2</span> <br>e &gt; <span class="hljs-keyword">c</span> &gt; d <span class="hljs-number">1</span> <span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
+
+<p> 我们发现，除了两个逆序对相等的情况，其他都改变了 2 个。</p>
+<p>同样我们也可以推出 $n = 5$ 的情况</p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs livecodeserver">q w e r t<br>y u i o p<br><span class="hljs-keyword">a</span> s _ f g<br>h j k l z<br>x c v b n<br><br>q w e r t y u i o p <span class="hljs-keyword">a</span> s _ f g h j k l z x c v b n 原<br>q w e r t y u i o p <span class="hljs-keyword">a</span> _ s f g h j k l z x c v b n 左<br>q w e r t y u i o p <span class="hljs-keyword">a</span> s f _ g h j k l z x c v b n 右<br>q w e r t y u _ o p <span class="hljs-keyword">a</span> s i f g h j k l z x c v b n 上<br><br>向上移动，部分变成了<br>o p <span class="hljs-keyword">a</span> s i<br>i o p <span class="hljs-keyword">a</span> s<br><br>前面是数列各数的关系，后面是逆序对改变前和改变后的数量<br>i &gt; o &gt; p &gt; <span class="hljs-keyword">a</span> &gt; s <span class="hljs-number">6</span> <span class="hljs-number">10</span><br>i &gt; o &gt; p &gt; s &gt; <span class="hljs-keyword">a</span> <span class="hljs-number">5</span> <span class="hljs-number">9</span><br>i &gt; o &gt; <span class="hljs-keyword">a</span> &gt; p &gt; s <span class="hljs-number">5</span> <span class="hljs-number">9</span><br>i &gt; o &gt; <span class="hljs-keyword">a</span> &gt; s &gt; p <span class="hljs-number">4</span> <span class="hljs-number">8</span><br>i &gt; o &gt; s &gt; <span class="hljs-keyword">a</span> &gt; p <span class="hljs-number">3</span> <span class="hljs-number">7</span><br>i &gt; o &gt; s &gt; p &gt; <span class="hljs-keyword">a</span> <span class="hljs-number">4</span> <span class="hljs-number">8</span><br>（因为太多 只列举部分，但这个部分可能会产生误导）<br>（从这里可能会误导，|结果数列的逆序对数量-输入数列的逆序对数量| = n - <span class="hljs-number">1</span>，所以我特地找了个数据）<br><span class="hljs-keyword">a</span> &gt; p &gt; o &gt; i &gt; s <span class="hljs-number">6</span> <span class="hljs-number">4</span><br></code></pre></td></tr></table></figure>
+
+<p>可以发现，每次向上（下）移动后逆序对的个数改变都为偶数个，因为我们将空格移动后，将会改变奇数个数的相对位置，但若看成将某个数移动到空格的位置上，就相当于这个数与前面 $n - 1$ 个数交换了位置，因为 $n - 1$ 为偶数，所以逆序对的变化也一定为偶数，为什么？看 $n = 3$ 时举的例子，同样，当 $n &gt; 3 且 n\mod 2≠0$ 时，都可以简化为 $n = 3$ 的情况</p>
+<p>因此我们可以得到，向左右移动时，数列的逆序对数量不变，向上下移动时，数列的逆序对奇偶性不变，<strong>若结果数列的逆序对个数的奇偶性与输入数列的逆序对个数的奇偶性相同，则说明可以到达，反之则不能</strong>，这句话也可以换个意思，由我们模拟的样例可以得到，假如想要从结果数列到达输入数列，**那么必定可以得到 |结果数列的逆序对个数 - 输入数列的逆序对个数| Mod 2 = 0 **，于是我们只需要得到这两个数列的逆序对个数就可以得到我们最终的答案。</p>
+<p>最后要注意逆序对的个数要开long long，最坏情况为递减数列，即最大逆序对的个数为 $2n^2$ 即为 $250000^2$ 会爆int（但此题的数据并没有卡这个） </p>
+<p>代码如下</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;cstdio&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span><br><br><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> MAXN = <span class="hljs-number">500</span> * <span class="hljs-number">500</span> + <span class="hljs-number">5</span>;<br><span class="hljs-keyword">int</span> arr[MAXN], brr[MAXN], b[MAXN];<br><br><span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> cnt = <span class="hljs-number">0</span>;<br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">mergeSort</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a[MAXN], <span class="hljs-keyword">int</span> l, <span class="hljs-keyword">int</span> mid, <span class="hljs-keyword">int</span> r)</span> </span>&#123;<br>	<span class="hljs-keyword">int</span> i = l, j = mid + <span class="hljs-number">1</span>;<br>	<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> k = l; k &lt;= r; k++) &#123;<br>		<span class="hljs-keyword">if</span>(j &gt; r || i &lt;= mid &amp;&amp; a[i] &lt;= a[j]) b[k] = a[i++];<br>		<span class="hljs-keyword">else</span> b[k] = a[j++], cnt += mid - i + <span class="hljs-number">1</span>;<br>	&#125; <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> k = l; k &lt;= r; k++) a[k] = b[k];<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">merge</span><span class="hljs-params">(<span class="hljs-keyword">int</span> l, <span class="hljs-keyword">int</span> r, <span class="hljs-keyword">int</span> a[MAXN])</span> </span>&#123;<br>	<span class="hljs-keyword">if</span>(l &lt; r) &#123;<br>		<span class="hljs-keyword">int</span> mid = (l + r) &gt;&gt; <span class="hljs-number">1</span>;<br>		<span class="hljs-built_in">merge</span>(l, mid, a);<br>		<span class="hljs-built_in">merge</span>(mid + <span class="hljs-number">1</span>, r, a);<br>		<span class="hljs-built_in">mergeSort</span>(a, l, mid, r);<br>	&#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>	<span class="hljs-keyword">int</span> n;<br>	<span class="hljs-keyword">while</span>(<span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>, &amp;n) != EOF) &#123; <span class="hljs-comment">//多组数据的输入方式</span><br>		<span class="hljs-keyword">int</span> kx = <span class="hljs-number">0</span>, ky = <span class="hljs-number">0</span>;<br>		<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= n * n; i++) &#123;<br>			<span class="hljs-keyword">int</span> x = <span class="hljs-number">0</span>;<br>			<span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>, &amp;x);<br>			<span class="hljs-keyword">if</span>(x != <span class="hljs-number">0</span>) arr[++kx] = x;<br>		&#125;<br>		<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= n * n; i++) &#123;<br>			<span class="hljs-keyword">int</span> x = <span class="hljs-number">0</span>;<br>			<span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>, &amp;x);<br>			<span class="hljs-keyword">if</span>(x != <span class="hljs-number">0</span>) brr[++ky] = x;<br>		&#125;<br>		<br>		<span class="hljs-keyword">if</span>(n == <span class="hljs-number">1</span>) &#123; <span class="hljs-built_in">puts</span>(<span class="hljs-string">&quot;TAK&quot;</span>); <span class="hljs-keyword">continue</span>; &#125;<br>		<br>		<span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> ans_arr = <span class="hljs-number">0</span>, ans_brr = <span class="hljs-number">0</span>;<br>		<span class="hljs-built_in">merge</span>(<span class="hljs-number">1</span>, kx, arr);<br>		ans_arr = cnt, cnt = <span class="hljs-number">0</span>;<br>		<span class="hljs-built_in">merge</span>(<span class="hljs-number">1</span>, ky, brr);<br>		ans_brr = cnt, cnt = <span class="hljs-number">0</span>;<br>		<br>		<span class="hljs-keyword">if</span>((ans_arr &amp; <span class="hljs-number">1</span>) != (ans_brr &amp; <span class="hljs-number">1</span>)) <span class="hljs-built_in">puts</span>(<span class="hljs-string">&quot;NIE&quot;</span>);<br>		<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(std::<span class="hljs-built_in">abs</span>(ans_brr - ans_arr) % <span class="hljs-number">2</span> == <span class="hljs-number">0</span>) <span class="hljs-built_in">puts</span>(<span class="hljs-string">&quot;TAK&quot;</span>);<br>		<span class="hljs-keyword">else</span> <span class="hljs-built_in">puts</span>(<span class="hljs-string">&quot;NIE&quot;</span>);<br>	&#125; <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E7%AE%97%E6%B3%95/">算法</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E9%80%86%E5%BA%8F%E5%AF%B9/">逆序对</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/">归并排序</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E6%9C%89%E8%A7%A3%E6%80%A7%E5%88%A4%E5%AE%9A/">有解性判定</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/07/02/%E8%B6%85%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/">
+                        <span class="hidden-mobile">超快速排序</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        loader: {
+          load: ['ui/lazy']
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" ></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

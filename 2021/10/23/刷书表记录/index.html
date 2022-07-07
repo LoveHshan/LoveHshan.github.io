@@ -1,0 +1,524 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://e.im5i.com/2021/10/21/UUsKQ7.png">
+  <link rel="icon" href="https://e.im5i.com/2021/10/21/UUsKQ7.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="Nicoppa">
+  <meta name="keywords" content="">
+  <meta name="description" content="从基础开始，重新开始刷书，此表为刷书记录表 使用网站：AcWing 使用书籍：算法竞赛进阶指南 2021&#x2F;10&#x2F;25 a^b 2021&#x2F;10&#x2F;26 64位数整数乘法 2021&#x2F;10&#x2F;26 最短Hamilton路径 2021&#x2F;10&#x2F;27 起床困难综合症 2021&#x2F;10&#x2F;27 递归实现指数型枚举 2021&#x2F;10&#x2F;28 递归实现组合型枚举 2021&#x2F;10&#x2F;28 递归实现组合型枚举 2021&#x2F;10&#x2F;28">
+<meta property="og:type" content="article">
+<meta property="og:title" content="刷书表记录">
+<meta property="og:url" content="https://lovehshan.top/2021/10/23/%E5%88%B7%E4%B9%A6%E8%A1%A8%E8%AE%B0%E5%BD%95/index.html">
+<meta property="og:site_name" content="Nicoppa_Blog">
+<meta property="og:description" content="从基础开始，重新开始刷书，此表为刷书记录表 使用网站：AcWing 使用书籍：算法竞赛进阶指南 2021&#x2F;10&#x2F;25 a^b 2021&#x2F;10&#x2F;26 64位数整数乘法 2021&#x2F;10&#x2F;26 最短Hamilton路径 2021&#x2F;10&#x2F;27 起床困难综合症 2021&#x2F;10&#x2F;27 递归实现指数型枚举 2021&#x2F;10&#x2F;28 递归实现组合型枚举 2021&#x2F;10&#x2F;28 递归实现组合型枚举 2021&#x2F;10&#x2F;28">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.giaott.com/images/2022/07/06/2U7ft.jpg">
+<meta property="article:published_time" content="2021-10-23T12:36:38.000Z">
+<meta property="article:modified_time" content="2022-07-06T11:55:55.229Z">
+<meta property="article:author" content="Nicoppa">
+<meta property="article:tag" content="算法">
+<meta property="article:tag" content="ACM">
+<meta property="article:tag" content="OI">
+<meta property="article:tag" content="算法竞赛">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.giaott.com/images/2022/07/06/2U7ft.jpg">
+  
+  <title>刷书表记录 - Nicoppa_Blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"lovehshan.top","root":"/","version":"1.8.12","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Nicoppaの个人博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://www.giaott.com/images/2022/07/06/2ULTG.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="刷书表记录">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-10-23 20:36" pubdate>
+        2021年10月23日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      355 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      1 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">刷书表记录</h1>
+            
+            <div class="markdown-body">
+              <p><img src="https://www.giaott.com/images/2022/07/06/2U7ft.jpg" srcset="/img/loading.gif" lazyload></p>
+<p>从基础开始，重新开始刷书，此表为刷书记录表</p>
+<p>使用网站：<a target="_blank" rel="noopener" href="https://www.acwing.com/activity/content/punch_the_clock/6/"><strong>AcWing</strong></a></p>
+<p>使用书籍：<strong>算法竞赛进阶指南</strong></p>
+<p>2021/10/25 <a href="https://lovehshan.top/2021/10/25/a%E7%9A%84b%E6%AC%A1%E6%96%B9/">a^b</a></p>
+<p>2021/10/26 <a href="https://lovehshan.top/2021/10/26/64%E4%BD%8D%E6%95%B4%E6%95%B0%E4%B9%98%E6%B3%95/">64位数整数乘法</a></p>
+<p>2021/10/26 <a href="https://lovehshan.top/2021/10/26/%E6%9C%80%E7%9F%ADHamilton%E8%B7%AF%E5%BE%84/">最短Hamilton路径</a></p>
+<p>2021/10/27 <a href="https://lovehshan.top/2021/10/27/%E8%B5%B7%E5%BA%8A%E5%9B%B0%E9%9A%BE%E7%BB%BC%E5%90%88%E7%97%87/">起床困难综合症</a></p>
+<p>2021/10/27 <a href="https://lovehshan.top/2021/10/27/%E9%80%92%E5%BD%92%E5%AE%9E%E7%8E%B0%E6%8C%87%E6%95%B0%E5%9E%8B%E6%9E%9A%E4%B8%BE/">递归实现指数型枚举</a></p>
+<p>2021/10/28 <a href="https://lovehshan.top/2021/10/28/%E9%80%92%E5%BD%92%E5%AE%9E%E7%8E%B0%E7%BB%84%E5%90%88%E5%9E%8B%E6%9E%9A%E4%B8%BE/">递归实现组合型枚举</a></p>
+<p>2021/10/28 <a href="https://lovehshan.top/2021/10/28/%E9%80%92%E5%BD%92%E5%AE%9E%E7%8E%B0%E6%8E%92%E5%88%97%E5%9E%8B%E6%9E%9A%E4%B8%BE/">递归实现组合型枚举</a></p>
+<p>2021/10/28 <a href="https://lovehshan.top/2021/10/28/%E8%B4%B9%E8%A7%A3%E7%9A%84%E5%BC%80%E5%85%B3/">费解的开关</a></p>
+<p>2021/10/29 <a href="https://lovehshan.top/2021/10/29/%E5%A5%87%E6%80%AA%E7%9A%84%E6%B1%89%E8%AF%BA%E5%A1%94/">奇怪的汉诺塔</a></p>
+<p>2021/10/29 <a href="https://lovehshan.top/2021/10/29/%E7%BA%A6%E6%95%B0%E4%B9%8B%E5%92%8C/">约数之和</a></p>
+<p>2022/1/8 <a href="https://lovehshan.top/2022/01/08/%E5%88%86%E5%BD%A2%E4%B9%8B%E5%9F%8E/">分形之城</a></p>
+<p>2022/1/8 <a href="https://lovehshan.top/2022/01/08/%E6%BF%80%E5%85%89%E7%82%B8%E5%BC%B9/">激光炸弹</a></p>
+<p>2022/1/10 <a href="https://lovehshan.top/2022/01/10/%E5%A2%9E%E5%87%8F%E5%BA%8F%E5%88%97/">增减序列</a></p>
+<p>2022/1/11 <a href="https://lovehshan.top/2022/01/11/%E6%9C%80%E9%AB%98%E7%9A%84%E7%89%9B/">最高的牛</a></p>
+<p>2022/1/11 <a href="https://lovehshan.top/2022/01/11/%E6%9C%80%E4%BD%B3%E7%89%9B%E5%9B%B4%E6%A0%8F/">最佳牛围栏</a></p>
+<p>2022/1/15 <a href="https://lovehshan.top/2022/01/15/%E7%94%B5%E5%BD%B1/">电影</a></p>
+<p>2022/1/16 <a href="https://lovehshan.top/2022/01/16/%E8%B4%A7%E4%BB%93%E9%80%89%E5%9D%80/">货仓选址</a></p>
+<p>2022/7/1 <a href="https://lovehshan.top/2022/06/30/%E4%B8%83%E5%A4%95%E7%A5%AD/">七夕祭</a></p>
+<p>2022/7/2 <a href="https://lovehshan.top/2022/07/02/%E5%8A%A8%E6%80%81%E4%B8%AD%E4%BD%8D%E6%95%B0/">动态中位数</a></p>
+<p>2022/7/2 <a href="https://lovehshan.top/2022/07/02/%E8%B6%85%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/">超快速排序</a></p>
+<p>2022/7/4 <a href="https://lovehshan.top/2022/07/04/%E5%A5%87%E6%95%B0%E7%A0%81%E9%97%AE%E9%A2%98/">奇数码问题</a></p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/">算法竞赛</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E7%AE%97%E6%B3%95/">算法</a>
+                    
+                      <a class="hover-with-bg" href="/tags/ACM/">ACM</a>
+                    
+                      <a class="hover-with-bg" href="/tags/OI/">OI</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/">算法竞赛</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/10/25/%E5%BF%85%E4%BF%AE%E4%B8%80%E4%B8%BE%E6%8A%98%E6%B3%95%E5%92%8C%E6%AD%A3%E8%BA%AB%E6%9C%A8%E6%9E%84%E6%9E%B6%E4%BD%9C%E4%B8%9A%E7%AC%94%E8%AE%B0%E5%8F%8D%E9%A6%88/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">必修一举折法和正身木构架作业笔记反馈</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/10/23/%E5%BF%85%E4%BF%AE%E4%B8%80%E7%AD%91%E7%BD%91%E5%B1%82%E4%BD%9C%E4%B8%9A%E7%AC%94%E8%AE%B0%E5%8F%8D%E9%A6%88/">
+                        <span class="hidden-mobile">必修一筑网层作业笔记反馈</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        loader: {
+          load: ['ui/lazy']
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" ></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
