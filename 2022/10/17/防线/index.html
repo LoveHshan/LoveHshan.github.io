@@ -1,0 +1,539 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://e.im5i.com/2021/10/21/UUsKQ7.png">
+  <link rel="icon" href="https://e.im5i.com/2021/10/21/UUsKQ7.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="Nicoppa">
+  <meta name="keywords" content="">
+  <meta name="description" content="达达学习数学竞赛的时候受尽了同仁们的鄙视，终于有一天……受尽屈辱的达达黑化成为了黑暗英雄怪兽达达。 就如同中二漫画的情节一样，怪兽达达打算毁掉这个世界。 数学竞赛界的精英 lqr 打算阻止怪兽达达的阴谋，于是她集合了一支由数学竞赛选手组成的超级行动队。 由于队员们个个都智商超群，很快，行动队便来到了怪兽达达的黑暗城堡的下方。 但是，同样强大的怪兽达达在城堡周围布置了一条“不可越过”的坚固防线。 防">
+<meta property="og:type" content="article">
+<meta property="og:title" content="防线">
+<meta property="og:url" content="https://lovehshan.top/2022/10/17/%E9%98%B2%E7%BA%BF/index.html">
+<meta property="og:site_name" content="Nicoppa_Blog">
+<meta property="og:description" content="达达学习数学竞赛的时候受尽了同仁们的鄙视，终于有一天……受尽屈辱的达达黑化成为了黑暗英雄怪兽达达。 就如同中二漫画的情节一样，怪兽达达打算毁掉这个世界。 数学竞赛界的精英 lqr 打算阻止怪兽达达的阴谋，于是她集合了一支由数学竞赛选手组成的超级行动队。 由于队员们个个都智商超群，很快，行动队便来到了怪兽达达的黑暗城堡的下方。 但是，同样强大的怪兽达达在城堡周围布置了一条“不可越过”的坚固防线。 防">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-10-17T10:54:31.000Z">
+<meta property="article:modified_time" content="2022-10-17T03:13:13.937Z">
+<meta property="article:author" content="Nicoppa">
+<meta property="article:tag" content="算法">
+<meta property="article:tag" content="前缀和">
+<meta property="article:tag" content="二分">
+<meta name="twitter:card" content="summary_large_image">
+  
+  <title>防线 - Nicoppa_Blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"lovehshan.top","root":"/","version":"1.8.12","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Nicoppaの个人博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://www.giaott.com/images/2022/07/06/2ULTG.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="防线">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-10-17 18:54" pubdate>
+        2022年10月17日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.3k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      7 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">防线</h1>
+            
+            <div class="markdown-body">
+              <p>达达学习数学竞赛的时候受尽了同仁们的鄙视，终于有一天……受尽屈辱的达达黑化成为了黑暗英雄怪兽达达。</p>
+<p>就如同中二漫画的情节一样，怪兽达达打算毁掉这个世界。</p>
+<p>数学竞赛界的精英 lqr 打算阻止怪兽达达的阴谋，于是她集合了一支由数学竞赛选手组成的超级行动队。</p>
+<p>由于队员们个个都智商超群，很快，行动队便来到了怪兽达达的黑暗城堡的下方。</p>
+<p>但是，同样强大的怪兽达达在城堡周围布置了一条“不可越过”的坚固防线。</p>
+<p>防线由很多防具组成，这些防具分成了 $N$ 组。</p>
+<p>我们可以认为防线是一维的，那么每一组防具都分布在防线的某一段上，并且同一组防具是等距离排列的。</p>
+<p>也就是说，我们可以用三个整数 $S$， $E$ 和 $D$ 来描述一组防具，即这一组防具布置在防线的 $S，S+D，S+2D，…，S+KD$$$(K∈Z，S+KD≤E，S+(K+1)D&gt;E)$$位置上。</p>
+<p>黑化的怪兽达达设计的防线极其精良。</p>
+<p>如果防线的某个位置有偶数个防具，那么这个位置就是毫无破绽的(包括这个位置一个防具也没有的情况，因为 $0$ 也是偶数)。</p>
+<p>只有有奇数个防具的位置有破绽，但是整条防线上也最多只有一个位置有奇数个防具。</p>
+<p>作为行动队的队长，lqr 要找到防线的破绽以策划下一步的行动。</p>
+<p>但是，由于防具的数量太多，她实在是不能看出哪里有破绽。</p>
+<p>作为 lqr 可以信任的学弟学妹们，你们要帮助她解决这个问题。</p>
+<h4 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h4><p>输入文件的第一行是一个整数 $T$，表示有 $T$ 组互相独立的测试数据。</p>
+<p>每组数据的第一行是一个整数 $N$。</p>
+<p>之后 $N$ 行，每行三个整数 $S_i，E_i，D_i$，代表第 $i$ 组防具的三个参数，数据用空格隔开。</p>
+<h4 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h4><p>对于每组测试数据，如果防线没有破绽，即所有的位置都有偶数个防具，输出一行 <code>&quot;There&#39;s no weakness.&quot;</code>(不包含引号) 。</p>
+<p>否则在一行内输出两个空格分隔的整数 $P$ 和 $C$，表示在位置 $P$ 有 $C$ 个防具。当然 $C$ 应该是一个奇数。</p>
+<h4 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h4><p>防具总数不多于$10^8$,</p>
+<p>$S_i≤E_i$,</p>
+<p>$1≤T≤5$,</p>
+<p>$N≤200000$,</p>
+<p>$0≤S_i，E_i，D_i≤2^{31}-1$</p>
+<h4 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h4><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs basic"><span class="hljs-number">3</span><br><span class="hljs-number">2</span><br><span class="hljs-symbol">1 </span><span class="hljs-number">10</span> <span class="hljs-number">1</span><br><span class="hljs-symbol">2 </span><span class="hljs-number">10</span> <span class="hljs-number">1</span><br><span class="hljs-number">2</span><br><span class="hljs-symbol">1 </span><span class="hljs-number">10</span> <span class="hljs-number">1</span> <br><span class="hljs-symbol">1 </span><span class="hljs-number">10</span> <span class="hljs-number">1</span> <br><span class="hljs-number">4</span><br><span class="hljs-symbol">1 </span><span class="hljs-number">10</span> <span class="hljs-number">1</span> <br><span class="hljs-symbol">4 </span><span class="hljs-number">4</span> <span class="hljs-number">1</span> <br><span class="hljs-symbol">1 </span><span class="hljs-number">5</span> <span class="hljs-number">1</span> <br><span class="hljs-symbol">6 </span><span class="hljs-number">10</span> <span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h4><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">1</span> <span class="hljs-number">1</span><br><span class="hljs-attribute">There</span>&#x27;s no weakness.<br><span class="hljs-attribute">4</span> <span class="hljs-number">3</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>题目解析</strong></p>
+<p>题意：给你很多个等差数列，让你求是否存在一个位置是奇数。</p>
+<p>由题可得：整个防线至多只有一个位置是奇数个数 或 全是偶数</p>
+<p>先将所有等差数列求和，看是否为奇数</p>
+<ul>
+<li><p>如果不是奇数 那么直接输出 <code>There&#39;s no weakness.</code></p>
+</li>
+<li><p>如果是奇数，那么可以得到 任意选取一段区间 $[l ,r]$，假设 $[l, r]$ 区间内的数加起来是奇数，那么答案就在这个区间内，假设不为奇数 那么答案就不在这个区间内。</p>
+</li>
+</ul>
+<p>于是可得：我们只需要每次二分看左半段的个数前缀和是否是奇数即可。</p>
+<p>计算 $[l, r]$ 区间内的数之和是否为奇数，只需要利用前缀和的性质即可，即 $sum[r] - sum[l - 1]$</p>
+<ul>
+<li>$sum$ 的求法，假设此时已经二分了一个 $mid$ ，对于所有的等差数列 $[s, e]$， 若 $s &lt;= mid$ 则有公式$(min(mid, e) - s) / d + 1$ <strong>这个 $1$ 是加在外面的，是因为等差数列的 $a_1$ 是直接赋值的</strong> </li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;cstdio&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span><br><br><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> N = <span class="hljs-number">200005</span>;<br><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">node</span> &#123;</span><br>	<span class="hljs-keyword">int</span> s, e, d;<br>&#125; arr[N];<br><br><span class="hljs-keyword">int</span> n;<br><span class="hljs-keyword">int</span> maxx, minn = <span class="hljs-number">1e9</span>;<br><br><span class="hljs-function"><span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> <span class="hljs-title">getSum</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x)</span> </span>&#123;<br>	<span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> res = <span class="hljs-number">0</span>;<br>	<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;<br>	    <span class="hljs-keyword">if</span>(arr[i].s &lt;= x)<br>	        res += ((std::<span class="hljs-built_in">min</span>(arr[i].e, x) - arr[i].s)  / arr[i].d) + <span class="hljs-number">1</span>;<br>	&#125; <span class="hljs-keyword">return</span> res;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">check</span><span class="hljs-params">(<span class="hljs-keyword">int</span> l, <span class="hljs-keyword">int</span> x)</span> </span>&#123;<br>	<span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> res = <span class="hljs-number">0</span>;<br>	res += <span class="hljs-built_in">getSum</span>(x) - <span class="hljs-built_in">getSum</span>(l - <span class="hljs-number">1</span>);<br>	<br>	<span class="hljs-keyword">if</span>(res &amp; <span class="hljs-number">1</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>	<span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>	<span class="hljs-keyword">int</span> t;<br>	<span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>, &amp;t);<br>	<span class="hljs-keyword">while</span>(t--) &#123;<br>		<span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>, &amp;n);<br>		<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;<br>			<span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d %d %d&quot;</span>, &amp;arr[i].s, &amp;arr[i].e, &amp;arr[i].d);<br>			maxx = std::<span class="hljs-built_in">max</span>(maxx, arr[i].e);<br>			minn = std::<span class="hljs-built_in">min</span>(minn, arr[i].s);<br>		&#125;<br>		<br>		<span class="hljs-keyword">if</span>(!(<span class="hljs-built_in">getSum</span>(maxx) &amp; <span class="hljs-number">1</span>)) &#123; <span class="hljs-built_in">puts</span>(<span class="hljs-string">&quot;There&#x27;s no weakness.&quot;</span>); <span class="hljs-keyword">continue</span>; &#125;<br>		<br>		<span class="hljs-keyword">int</span> l = minn, r = maxx;<br>		<span class="hljs-keyword">while</span>(l &lt; r) &#123;<br>			<span class="hljs-keyword">int</span> mid = (l + r) &gt;&gt; <span class="hljs-number">1</span>;<br>			<span class="hljs-keyword">if</span>(<span class="hljs-built_in">check</span>(l, mid)) r = mid;<br>			<span class="hljs-keyword">else</span> l = mid + <span class="hljs-number">1</span>;<br>		&#125;<br>		<br>		<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%lld %lld\n&quot;</span>, l, <span class="hljs-built_in">getSum</span>(l) - <span class="hljs-built_in">getSum</span>(l - <span class="hljs-number">1</span>));<br>	&#125; <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E7%AE%97%E6%B3%95/">算法</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%89%8D%E7%BC%80%E5%92%8C/">前缀和</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E4%BA%8C%E5%88%86/">二分</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/10/17/%E8%B5%B6%E7%89%9B%E5%85%A5%E5%9C%88/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">赶牛入圈</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/10/13/%E8%A2%AD%E5%87%BB/">
+                        <span class="hidden-mobile">袭击</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        loader: {
+          load: ['ui/lazy']
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" ></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
